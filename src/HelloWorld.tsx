@@ -5,6 +5,8 @@ import {
 	Sequence,
 	useCurrentFrame,
 	useVideoConfig,
+	Easing,
+	staticFile,
 } from 'remotion';
 import {Logo} from './HelloWorld/Logo';
 import {Subtitle} from './HelloWorld/Subtitle';
@@ -41,7 +43,12 @@ export const HelloWorld: React.FC<z.infer<typeof myCompSchema>> = ({
 	const logoTranslation = interpolate(
 		logoTranslationProgress,
 		[0, 1],
-		[0, -150]
+		[0, -150],
+		{
+			easing: Easing.bezier(0.5, 0, 0, 0.5),
+			extrapolateLeft: 'clamp',
+			extrapolateRight: 'clamp',
+		}
 	);
 
 	// Fade out the animation at the end
@@ -61,13 +68,23 @@ export const HelloWorld: React.FC<z.infer<typeof myCompSchema>> = ({
 			<AbsoluteFill style={{opacity}}>
 				<AbsoluteFill style={{transform: `translateY(${logoTranslation}px)`}}>
 					<Logo logoColor1={logoColor1} logoColor2={logoColor2} />
+					<img
+						style={{
+							width: '200px',
+							position: 'absolute',
+							left: '860px',
+							top: '440px',
+						}}
+						src={staticFile('dog.svg')}
+						alt="Brazu"
+					/>
 				</AbsoluteFill>
 				{/* Sequences can shift the time for its children! */}
 				<Sequence from={35}>
 					<Title titleText={propOne} titleColor={propTwo} />
 				</Sequence>
 				{/* The subtitle will only enter on the 75th frame. */}
-				<Sequence from={75}>
+				<Sequence from={60}>
 					<Subtitle />
 				</Sequence>
 			</AbsoluteFill>

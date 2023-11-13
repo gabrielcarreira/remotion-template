@@ -81,7 +81,7 @@ export const Logo: React.FC<z.infer<typeof myCompSchema2>> = ({
 				color1={color1}
 				color2={color2}
 			/>
-			<Atom scale={rotationDevelopment} color1={color1} color2={color2} />
+			{/* <Atom scale={rotationDevelopment} color1={color1} color2={color2} /> */}
 		</AbsoluteFill>
 	);
 };

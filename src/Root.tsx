@@ -20,10 +20,10 @@ export const RemotionRoot: React.FC = () => {
 				// https://www.remotion.dev/docs/parametrized-rendering
 				schema={myCompSchema}
 				defaultProps={{
-					titleText: 'Welcome to Remotion',
-					titleColor: '#000000',
-					logoColor1: '#91EAE4',
-					logoColor2: '#86A8E7',
+					titleText: 'Brazu JSX',
+					titleColor: '#222',
+					logoColor1: '#00C056',
+					logoColor2: '#00C056',
 				}}
 			/>
 			{/* Mount any React component to make it show up in the sidebar and work on it individually! */}
@@ -36,8 +36,8 @@ export const RemotionRoot: React.FC = () => {
 				height={1080}
 				schema={myCompSchema2}
 				defaultProps={{
-					logoColor1: '#91dAE2' as const,
-					logoColor2: '#86A8E7' as const,
+					logoColor1: '#20ffaa' as const,
+					logoColor2: '#23b6ff' as const,
 				}}
 			/>
 		</>
